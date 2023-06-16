@@ -1,0 +1,123 @@
+openapi: 3.0.1
+info:
+  title: Books Plugin
+  description: A plugin that allows the user to interact with a books database.
+  version: 'v1'
+servers:
+  - url: http://localhost:5003
+paths:
+  /list_all/{grade}/{type}:
+    post:
+      operationId: listAll
+      parameters:
+      - in: path
+        name: grade
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: type
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Returns a list of all books.
+
+  /get_rnd/{grade}/{type}:
+    post:
+      operationId: getRnd
+      parameters:
+      - in: path
+        name: grade
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: type
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Returns a random book.
+
+  /get_books/{grade}/{type}:
+    post:
+      operationId: getBooks
+      parameters:
+      - in: path
+        name: grade
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: type
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Returns a list of all books.
+  /get_presentation/{grade}/{type}:
+    post:
+      operationId: getPresentation
+      parameters:
+      - in: path
+        name: grade
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: type
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Returns a presentation of the books.
+  /get_bio/{grade}/{type}/{author}:
+    post:
+      operationId: getBio
+      parameters:
+      - in: path
+        name: grade
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: type
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: author
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Returns the biography of the author.
+          
+  /get_adding/{grade}/{type}/{command}:
+    post:
+      operationId: getAdding
+      parameters:
+      - in: path
+        name: grade
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: type
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: command
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Returns books that match a certain command.
