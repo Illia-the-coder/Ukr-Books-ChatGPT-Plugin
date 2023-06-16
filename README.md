@@ -1,4 +1,4 @@
- You can test this plugin by inputting the link 'https://ukr-books-chatgpt-plugin.illia56.repl.co' into the field ![image](https://github.com/Illia-the-coder/Ukr-Books-ChatGPT-Plugin/assets/101904816/9d246a23-969a-44f8-9f2a-422928b6cbe4). Here are the instructions for setting up the plugin:
+ You can test this plugin by inputting the link https://ukr-books-chatgpt-plugin.illia56.repl.co into the field ![image](https://github.com/Illia-the-coder/Ukr-Books-ChatGPT-Plugin/assets/101904816/9d246a23-969a-44f8-9f2a-422928b6cbe4). Here are the instructions for setting up the plugin:
  
 # Ukr-Books-ChatGPT-Plugin Quickstart
 Get the Ukr-Books-ChatGPT-Plugin up and running in less than 5 minutes using Python. This plugin is meant to work with the [ChatGPT plugins documentation](https://platform.openai.com/docs/plugins). If you do not have plugin developer access yet, you can sign up to the waitlist by going to https://openai.com/waitlist/plugins.
