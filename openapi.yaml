@@ -6,6 +6,7 @@ info:
 servers:
   - url: https://ukr-books-chatgpt-plugin.illia56.repl.co
 paths:
+
   /list_all/{grade}/{type}:
     post:
       operationId: listAll
@@ -23,7 +24,7 @@ paths:
       responses:
         '200':
           description: Returns a list of all books.
-
+          
   /get_rnd/{grade}/{type}:
     post:
       operationId: getRnd
@@ -42,7 +43,7 @@ paths:
         '200':
           description: Returns a random book.
 
-  /get_books/{grade}/{type}:
+  /get_books/{grade}/{type}/{author}:
     post:
       operationId: getBooks
       parameters:
@@ -56,26 +57,31 @@ paths:
         schema:
           type: string
         required: true
-      responses:
-        '200':
-          description: Returns a list of all books.
-  /get_presentation/{grade}/{type}:
-    post:
-      operationId: getPresentation
-      parameters:
-      - in: path
-        name: grade
-        schema:
-          type: string
-        required: true
       - in: path
         name: type
         schema:
-          type: string
+          type: author
         required: true
       responses:
         '200':
-          description: Returns a presentation of the books.
+          description: Returns a list of all books for this author.
+  # /get_presentation/{grade}/{type}:
+  #   post:
+  #     operationId: getPresentation
+  #     parameters:
+  #     - in: path
+  #       name: grade
+  #       schema:
+  #         type: string
+  #       required: true
+  #     - in: path
+  #       name: type
+  #       schema:
+  #         type: string
+  #       required: true
+  #     responses:
+  #       '200':
+  #         description: Returns a presentation of the books.
   /get_bio/{grade}/{type}/{author}:
     post:
       operationId: getBio
