@@ -5,8 +5,8 @@ import json
 
 class DB:
     def __init__(self, grade,type):
-        type=  'Українська' if 'укр' in type.lower() else 'Світова'
-        main_DB=json.load(open(f"resource/data_all.json"))[f'_{grade} клас {type}']
+        type=  'Ukrainian' if 'ukr' in type.lower() else 'World`s'
+        main_DB=json.load(open(f"resource/data_all.json"))[f'_{grade} grade {type}']
         self.data_ = pd.DataFrame(main_DB[f'books'])
         self.pres_data = main_DB['pres']
         self.authors =list(self.data_.columns)
@@ -47,7 +47,7 @@ class DB:
         return BIO
     
     def get_adding(self,command):
-        modes = {'📔Твори скорочено':'Скорочено', '📗Аналізи':'Аналіз', '🔉Аудіокниги творів':'Аудіокниги'}
+        modes = {'📔Shortly croped':'Shortly', '📗Review':'Review', '🔉Audiobooks':'Audiobook'}
         data={}
         for author in self.authors:
             data_={}
@@ -59,7 +59,7 @@ class DB:
             if len(data_.keys()):
                 data[f'{command[0]}{author}']=data_
         return data
-# DF=DB('9 клас Світова')
+# DF=DB('9 клас World`s')
 # for i in DF.authors:
 #     print(DF.get_bio(i))   
 # # DF=DF[DF[0].str.contains('Свіфт')]

@@ -1,10 +1,10 @@
 openapi: 3.0.1
 info:
-  title: Books Plugin
+  title: Ukr-School-Books
   description: A plugin that allows the user to interact with a books database.
   version: 'v1'
 servers:
-  - url: http://localhost:5003
+  - url: https://ukr-books-chatgpt-plugin.illia56.repl.co
 paths:
   /list_all/{grade}/{type}:
     post:
@@ -98,10 +98,10 @@ paths:
       responses:
         '200':
           description: Returns the biography of the author.
-          
-  /get_adding/{grade}/{type}/{command}:
+
+/get_content/{grade}/{type}/{author}:
     post:
-      operationId: getAdding
+      operationId: getContent
       parameters:
       - in: path
         name: grade
@@ -114,10 +114,11 @@ paths:
           type: string
         required: true
       - in: path
-        name: command
+        name: author
         schema:
           type: string
         required: true
       responses:
         '200':
-          description: Returns books that match a certain command.
+          description: Returns the content of the book.
+
