@@ -1,4 +1,7 @@
 # Ukr-Books-ChatGPT-Plugin
+<img src=".github/logo.png" width="30%">
+![telegram-cloud-photo-size-2-5228740134894160757-y](https://github.com/Illia-the-coder/Ukr-Books-ChatGPT-Plugin/assets/101904816/2fdd6c97-fb8f-4cd0-80ad-ef0ea3624020)
+Я з гордістю повідомляю про запуск інноваційного плагіну для чату, який з'єднує користувачів з великою базою даних української літератури для шкіл. З підпискою на Chat GPT Plus ви можете легко отримати доступ до цього новаторського плагіну на сайті https://chat.openai.com/?model=gpt-4-plugins. Плагін є першим у своєму роді, який демонструє унікальний і захоплюючий світ української літератури та культури, з включенням слова "укр". Приєднуйтесь до мене у просуванні цієї багатої літературної традиції по всьому світу.Запустіть плагін для створення списку справ ChatGPT менш ніж за 5 хвилин за допомогою Python. Цей плагін призначений для роботи разом з [ChatGPT[Документація плагіна ChatGPT документація плагінів](https://platform.openai.com/docs/plugins). Якщо у вас ще немає доступу розробника плагінів, будь ласка, [приєднайтеся до списку очікування](https://openai.com/waitlist/plugins).Приклад використання цього плагіна можна побачити тут - https://chat.openai.com/share/f2d7dcea-c965-4ad6-9e84-12334bc93120 # Ukr-Books-ChatGPT-Plugin
 
 ![telegram-cloud-photo-size-2-5228740134894160757-y](https://github.com/Illia-the-coder/Ukr-Books-ChatGPT-Plugin/assets/101904816/2fdd6c97-fb8f-4cd0-80ad-ef0ea3624020)
 
@@ -6,38 +9,11 @@ I am proud to announce the launch of an innovative chat plugin that connects use
 
 Get a todo list ChatGPT plugin up and running in under 5 minutes using Python. This plugin is designed to work in conjunction with the [ChatGPT plugins documentation](https://platform.openai.com/docs/plugins). If you do not already have plugin developer access, please [join the waitlist](https://openai.com/waitlist/plugins).
 
-## Setup locally
+## Usage example
+You can see example of using this plugin here - https://chat.openai.com/share/f2d7dcea-c965-4ad6-9e84-12334bc93120
 
-To install the required packages for this plugin, run the following command:
+## Free option of using [Open Assistant Chat](https://open-assistant.io/chat)
 
-```bash
-pip install -r requirements.txt
-```
+![image](https://github.com/Illia-the-coder/Ukr-Books-ChatGPT-Plugin/assets/101904816/80c13592-3fae-4d06-8bde-4624b2d7a30e)
 
-To run the plugin, enter the following command:
-
-```bash
-python main.py
-```
-
-Once the local server is running:
-
-1. Navigate to https://chat.openai.com. 
-2. In the Model drop down, select "Plugins" (note, if you don't see it there, you don't have access yet).
-3. Select "Plugin store"
-4. Select "Develop your own plugin"
-5. Enter in `localhost:5003` since this is the URL the server is running on locally, then select "Find manifest file".
-
-The plugin should now be installed and enabled! You can start with a question like "What is on my todo list" and then try adding something to it as well! 
-
-## Setup remotely
-
-### Cloudflare workers
-
-### Code Sandbox
-
-### Replit
-
-## Getting help
-
-If you run into issues or have questions building a plugin, please join our [Developer community forum](https://community.openai.com/c/chat-plugins/20).
+Anyone can access our plugin(Ukr-School-Books) for FREE! Follow this link - https://ukr-books-chatgpt-plugin.illia56.repl.co. And you can access it anytime at [Open Assistant Chat](https://open-assistant.io/chat).
