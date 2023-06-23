@@ -29,6 +29,7 @@ And guess what? You can access our plugin (Ukr-School-Books) absolutely FREE of 
 І здогадайтесь що? Ви можете отримати доступ до нашого плагіну (Ukr-School-Books) абсолютно БЕЗКОШТОВНО! 💥 Перейдіть за
 
  цим посиланням - https://ukr-books-chatgpt-plugin.illia56.repl.co. Або отримайте доступ до нього в будь-який час за допомогою [Open Assistant Chat](https://open-assistant.io/chat). 📲
+ 
 ![image](https://github.com/Illia-the-coder/Ukr-Books-ChatGPT-Plugin/assets/101904816/80c13592-3fae-4d06-8bde-4624b2d7a30e)
 
 
