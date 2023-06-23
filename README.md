@@ -1,5 +1,4 @@
 # Ukr-Books-ChatGPT-Plugin
-![image](https://github.com/Illia-the-coder/Ukr-Books-ChatGPT-Plugin/assets/101904816/61931660-9684-4e94-8111-96900330f9c8)
 
 ![telegram-cloud-photo-size-2-5228740134894160757-y](https://github.com/Illia-the-coder/Ukr-Books-ChatGPT-Plugin/assets/101904816/2fdd6c97-fb8f-4cd0-80ad-ef0ea3624020)
 
