@@ -2,92 +2,86 @@ import json
 import quart
 import quart_cors
 from quart import request
-import json
 from quart import Quart, render_template
 from LiteratureClient import DB
 
-app = quart_cors.cors(quart.Quart(__name__), allow_origin="https://chat.openai.com")
+app = Quart(__name__)
+quart_cors.CORS(app, allow_origin="https://chat.openai.com")
 
-@app.post("/list_all/<string:grade>/<string:type>")
+@app.route("/list_all/<string:grade>/<string:type>", methods=["POST"])
 async def list_all(grade, type):
     db = DB(grade, type)
-    all_books = {'list all':db.list_all()}
-    all_books['Main web-site view eng']=f'https://translate.google.com/translate?sl=uk&tl=en&u=https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade'
-    all_books['Main web-site view ukr']=f'https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade'
-    return quart.Response(response=json.dumps(all_books), mimetype="application/json", status=200)
+    all_books = {'list all': db.list_all()}
+    all_books['Main web-site view eng'] = f'https://translate.google.com/translate?sl=uk&tl=en&u=https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade'
+    all_books['Main web-site view ukr'] = f'https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade'
+    return quart.jsonify(all_books)
 
-@app.post("/get_books/<string:grade>/<string:type>/<string:author>/")
+@app.route("/get_books/<string:grade>/<string:type>/<string:author>/", methods=["POST"])
 async def get_books(grade, type, author):
     db = DB(grade, type)
-    books = {'books':df.get_books(author)}
+    books = {'books': db.get_books(author)}
     index = db.authors.index(author)
-    books['Main web-site view eng']=f'https://translate.google.com/translate?sl=uk&tl=en&u=https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}'
-    books['Main web-site view ukr']=f'https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}'
+    books['Main web-site view eng'] = f'https://translate.google.com/translate?sl=uk&tl=en&u=https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}'
+    books['Main web-site view ukr'] = f'https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}'
+    return quart.jsonify(books)
 
-    return quart.Response(response=json.dumps(books), mimetype="application/json", status=200)
-
-@app.post("/get_presentation/<string:grade>/<string:type>")
+@app.route("/get_presentation/<string:grade>/<string:type>", methods=["POST"])
 async def get_presentation(grade, type):
     db = DB(grade, type)
     presentation = db.get_presentation()
-    presentation['Main web-site view eng']=f'https://translate.google.com/translate?sl=uk&tl=en&u=https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/pres'
-    presentation['Main web-site view ukr']=f'https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/pres'
-    return quart.Response(response=json.dumps(presentation), mimetype="application/json", status=200)
+    presentation['Main web-site view eng'] = f'https://translate.google.com/translate?sl=uk&tl=en&u=https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/pres'
+    presentation['Main web-site view ukr'] = f'https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/pres'
+    return quart.jsonify(presentation)
 
-@app.post("/get_bio/<string:grade>/<string:type>/<string:author>")
+@app.route("/get_bio/<string:grade>/<string:type>/<string:author>", methods=["POST"])
 async def get_bio(grade, type, author):
     db = DB(grade, type)
     bio = db.get_bio(author)
     index = db.authors.index(author)
-    bio['Main web-site view eng']=f'https://translate.google.com/translate?sl=uk&tl=en&u=https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}'
-    bio['Main web-site view ukr']=f'https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}'
-    return quart.Response(response=json.dumps(bio), mimetype="application/json", status=200)
+    bio['Main web-site view eng'] = f'https://translate.google.com/translate?sl=uk&tl=en&u=https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}'
+    bio['Main web-site view ukr'] = f'https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}'
+    return quart.jsonify(bio)
 
-@app.post("/get_content/<string:grade>/<string:type>/<string:author>/<string:name>")
+@app.route("/get_content/<string:grade>/<string:type>/<string:author>/<string:name>", methods=["POST"])
 async def get_content(grade, type, author, name):
     db = DB(grade, type)
     content = db.get_content(author, name)
     index = db.authors.index(author)
-    book_index = df.get_books(author).index(name)
-    content['Main web-site view eng']=f'https://translate.google.com/translate?sl=uk&tl=en&u=https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}/book_ind={book_index}'
-    content['Main web-site view ukr']=f'https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}/book_ind={book_index}'
-    return quart.Response(response=json.dumps(content), mimetype="application/json", status=200)
+    book_index = db.get_books(author).index(name)
+    content['Main web-site view eng'] = f'https://translate.google.com/translate?sl=uk&tl=en&u=https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}/book_ind={book_index}'
+    content['Main web-site view ukr'] = f'https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}/book_ind={book_index}'
+    return quart.jsonify(content)
 
-@app.post("/get_rnd/<string:grade>/<string:type>")
+@app.route("/get_rnd/<string:grade>/<string:type>", methods=["POST"])
 async def get_rnd(grade, type):
     db = DB(grade, type)
     rnd = db.get_rnd()
     index = db.authors.index(DB.rnd_auth)
-    book_index = df.get_books(author).index(DB.rnd_book)
-    rnd['Main web-site view eng']=f'https://translate.google.com/translate?sl=uk&tl=en&u=https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}/book_ind={book_index}'
-    rnd['Main web-site view ukr']=f'https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}/book_ind={book_index}'
-    return quart.Response(response=json.dumps(rnd), mimetype="application/json", status=200)
+    book_index = db.get_books(author).index(DB.rnd_book)
+    rnd['Main web-site view eng'] = f'https://translate.google.com/translate?sl=uk&tl=en&u=https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}/book_ind={book_index}'
+    rnd['Main web-site view ukr'] = f'https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}/book_ind={book_index}'
+    return quart.jsonify(rnd)
 
-
-@app.get("/logo.jpg")
+@app.route("/logo.jpg", methods=["GET"])
 async def plugin_logo():
     filename = 'logo.jpg'
     return await quart.send_file(filename, mimetype='image/png')
 
-@app.get("/.well-known/ai-plugin.json")
+@app.route("/.well-known/ai-plugin.json", methods=["GET"])
 async def plugin_manifest():
-    host = request.headers['Host']
     with open("./.well-known/ai-plugin.json") as f:
         text = f.read()
-        return quart.Response(response=text, mimetype="application/json", status=200)
+    return quart.Response(response=text, mimetype="application/json", status=200)
 
-@app.get("/openapi.yaml")
+@app.route("/openapi.yaml", methods=["GET"])
 async def openapi_spec():
-    host = request.headers['Host']
     with open("openapi.yaml") as f:
         text = f.read()
-        return quart.Response(response=text, mimetype="text/yaml", status=200)
+    return quart.Response(response=text, mimetype="text/yaml", status=200)
 
 @app.route('/legal', methods=['GET'])
 async def legal():
     return await render_template('LEGAL.html')
-
-
 
 def main():
     app.run(debug=True, host="0.0.0.0", port=5003)
