@@ -65,23 +65,7 @@ paths:
       responses:
         '200':
           description: Returns a list of all books for this author.
-  # /get_presentation/{grade}/{type}:
-  #   post:
-  #     operationId: getPresentation
-  #     parameters:
-  #     - in: path
-  #       name: grade
-  #       schema:
-  #         type: string
-  #       required: true
-  #     - in: path
-  #       name: type
-  #       schema:
-  #         type: string
-  #       required: true
-  #     responses:
-  #       '200':
-  #         description: Returns a presentation of the books.
+
   /get_bio/{grade}/{type}/{author}:
     post:
       operationId: getBio

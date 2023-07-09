@@ -2,11 +2,11 @@ import json
 import quart
 import quart_cors
 from quart import request
-from quart import Quart, render_template
+import json
+from quart import Quart, render_template, redirect
 from LiteratureClient import DB
 
-app = Quart(__name__)
-quart_cors.CORS(app, allow_origin="https://chat.openai.com")
+app = quart_cors.cors(quart.Quart(__name__), allow_origin="https://chat.openai.com")
 
 @app.route("/list_all/<string:grade>/<string:type>", methods=["POST"])
 async def list_all(grade, type):
@@ -82,6 +82,10 @@ async def openapi_spec():
 @app.route('/legal', methods=['GET'])
 async def legal():
     return await render_template('LEGAL.html')
+
+@app.route('/')
+async def home():
+    return redirect("https://butter-tangerine-f7b.notion.site/Ukr-Books-ChatGPT-ad1258cbc91b40e5ad78fa89f414dc09?pvs=4", code=302)
 
 def main():
     app.run(debug=True, host="0.0.0.0", port=5003)
