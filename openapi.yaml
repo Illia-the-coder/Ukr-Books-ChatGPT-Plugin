@@ -4,7 +4,7 @@ info:
   description: A plugin that allows the user to interact with a books database.
   version: 'v1'
 servers:
-  - url: https://ukr-books-chatgpt-plugin.illia56.repl.co
+  - url: https://ukr-books-chat-gpt-plugin.vercel.app
 paths:
 
   /list_all/{grade}/{type}:
