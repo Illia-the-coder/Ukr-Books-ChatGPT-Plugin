@@ -1,9 +1,9 @@
 {
     "schema_version": "v1",
-    "name_for_human": "Books Plugin",
+    "name_for_human": "Ukr-School-Books",
     "name_for_model": "books",
     "description_for_human": "Interact with a books database. List, get content, and find books.",
-    "description_for_model": "Plugin for interacting with a books database. You can list all books, get presentation, get biography of an author, get content of a book, get a random book, and get books that match a certain command. Input all values only in ukrainain, for World's literature use 'Світова', for ukrainain use 'Українська'.",
+    "description_for_model": "Plugin for interacting with a books database. You can list all books, get presentation, get biography of an author, get content of a book, get a random book, and get books that match a certain command.",
     "auth": {
         "type": "none"
     },
