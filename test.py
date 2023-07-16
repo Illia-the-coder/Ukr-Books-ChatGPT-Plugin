@@ -15,7 +15,7 @@ class LiteratureAppTestCase(unittest.IsolatedAsyncioTestCase):
         self.assertIn("Main web-site view ukr", data)
 
     async def test_get_books(self):
-        response = await self.app.post("/get_books/5/ukr/John Doe/")
+        response = await self.app.post("/get_books/9/for/Friedrich Schiller/")
         self.assertEqual(response.status_code, 200)
         data = await response.get_json()
         self.assertIn("books", data)
@@ -23,21 +23,21 @@ class LiteratureAppTestCase(unittest.IsolatedAsyncioTestCase):
         self.assertIn("Main web-site view ukr", data)
 
     async def test_get_presentation(self):
-        response = await self.app.post("/get_presentation/5/ukr")
+        response = await self.app.post("/get_presentation/9/for/Friedrich Schiller/")
         self.assertEqual(response.status_code, 200)
         data = await response.get_json()
         self.assertIn("Main web-site view eng", data)
         self.assertIn("Main web-site view ukr", data)
 
     async def test_get_bio(self):
-        response = await self.app.post("/get_bio/5/ukr/John Doe")
+        response = await self.app.post("/get_bio/9/ukr/John Doe")
         self.assertEqual(response.status_code, 200)
         data = await response.get_json()
         self.assertIn("Main web-site view eng", data)
         self.assertIn("Main web-site view ukr", data)
 
     async def test_get_content(self):
-        response = await self.app.post("/get_content/5/ukr/John Doe/Book Title")
+        response = await self.app.post("/get_content/9/for/Friedrich Schiller/To the joy/")
         self.assertEqual(response.status_code, 200)
         data = await response.get_json()
         self.assertIn("Main web-site view eng", data)
