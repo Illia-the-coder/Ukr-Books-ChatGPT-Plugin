@@ -88,7 +88,7 @@ async def openapi_spec():
 #     return quart.redirect("https://butter-tangerine-f7b.notion.site/Ukr-Books-ChatGPT-ad1258cbc91b40e5ad78fa89f414dc09?pvs=4", status=200)
 
 def main():
-    app.run(debug=True, host="0.0.0.0", port=5003)
+    app.run(debug=True)
 
 if __name__ == "__main__":
     main()
