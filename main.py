@@ -81,11 +81,11 @@ async def openapi_spec():
 
 @app.route('/legal', methods=['GET'])
 async def legal():
-    return await render_template('LEGAL.html')
+    return await render_template('LEGAL.html', code=200)
 
 @app.route('/')
 async def home():
-    return redirect("https://butter-tangerine-f7b.notion.site/Ukr-Books-ChatGPT-ad1258cbc91b40e5ad78fa89f414dc09?pvs=4", code=302)
+    return redirect("https://butter-tangerine-f7b.notion.site/Ukr-Books-ChatGPT-ad1258cbc91b40e5ad78fa89f414dc09?pvs=4", code=200)
 
 def main():
     app.run(debug=True, host="0.0.0.0", port=5003)
