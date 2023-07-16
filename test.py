@@ -1,6 +1,6 @@
 import unittest
 from quart import Quart
-from literature_app import app
+from main import app
 
 class LiteratureAppTestCase(unittest.IsolatedAsyncioTestCase):
     async def setUp(self):
