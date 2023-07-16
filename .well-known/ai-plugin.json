@@ -9,9 +9,9 @@
     },
     "api": {
         "type": "openapi",
-        "url": "http://localhost:5003/openapi.yaml"
+        "url": "https://ukr-books-chat-gpt-plugin.vercel.app/openapi.yaml"
     },
-    "logo_url": "http://localhost:5003/logo.jpg",
+    "logo_url": "https://ukr-books-chat-gpt-plugin.vercel.app/logo.jpg",
     "contact_email": "I.Ludogovskyi@gmail.com",
     "legal_info_url": "https://literature2.illia56.repl.co/"
 }
