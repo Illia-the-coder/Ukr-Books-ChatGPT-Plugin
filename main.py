@@ -79,13 +79,13 @@ async def openapi_spec():
         text = f.read()
     return quart.Response(response=text, mimetype="text/yaml", status=200)
 
-@app.route('/legal', methods=['GET'])
-async def legal():
-    return await quart.render_template('LEGAL.html', status=200)
+# @app.route('/legal', methods=['GET'])
+# async def legal():
+#     return await quart.render_template('LEGAL.html', status=200)
 
-@app.route('/')
-async def home():
-    return quart.redirect("https://butter-tangerine-f7b.notion.site/Ukr-Books-ChatGPT-ad1258cbc91b40e5ad78fa89f414dc09?pvs=4", status=200)
+# @app.route('/')
+# async def home():
+#     return quart.redirect("https://butter-tangerine-f7b.notion.site/Ukr-Books-ChatGPT-ad1258cbc91b40e5ad78fa89f414dc09?pvs=4", status=200)
 
 def main():
     app.run(debug=True, host="0.0.0.0", port=5003)
