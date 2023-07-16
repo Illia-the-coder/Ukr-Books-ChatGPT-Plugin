@@ -1,8 +1,6 @@
 # Ukr-Books-ChatGPT-Plugin
 https://github.com/Illia-the-coder/Ukr-Books-ChatGPT-Plugin
 
-https://img.shields.io/github/stars/Illia-the-coder/Ukr-Books-ChatGPT-Plugin
-
 The Ukr-Books-ChatGPT-Plugin is a Python-based plugin designed to enhance the capabilities of OpenAI's ChatGPT model by integrating it with Ukrainian literature. The plugin fetches, processes, and formats Ukrainian literature data, allowing ChatGPT to generate responses based on this data.
 
 
