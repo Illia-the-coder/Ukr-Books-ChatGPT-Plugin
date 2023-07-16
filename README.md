@@ -9,15 +9,6 @@ https://img.shields.io/github/stars/Illia-the-coder/Ukr-Books-ChatGPT-Plugin
 
 The Ukr-Books-ChatGPT-Plugin is a Python-based plugin designed to enhance the capabilities of OpenAI's ChatGPT model by integrating it with Ukrainian literature. The plugin fetches, processes, and formats Ukrainian literature data, allowing ChatGPT to generate responses based on this data.
 
-## Table of Contents
-
-- [[←](https://www.notion.so/Ukr-Books-ChatGPT-ad1258cbc91b40e5ad78fa89f414dc09?pvs=21)Overview](https://www.notion.so/Overview-f303c96a72034b50b71ce3d612745bb5?pvs=21)
-- [[←](https://www.notion.so/Ukr-Books-ChatGPT-ad1258cbc91b40e5ad78fa89f414dc09?pvs=21)Free Access](https://www.notion.so/Free-Access-f83c5e78a6ba40f3b945d982542722b8?pvs=21)
-- [](https://www.notion.so/d95fedd4cd2e48379af489cc0f6784f7?pvs=21)
-- [[←](https://www.notion.so/Ukr-Books-ChatGPT-ad1258cbc91b40e5ad78fa89f414dc09?pvs=21)Installation](https://www.notion.so/Installation-b0e50d7bb36a42978c9fcb704f4ffb28?pvs=21)
-- [[←](https://www.notion.so/Ukr-Books-ChatGPT-ad1258cbc91b40e5ad78fa89f414dc09?pvs=21)Usage](https://www.notion.so/Usage-4bf267a9e04e410d8f008da716a87db9?pvs=21)
-- [[←](https://www.notion.so/Ukr-Books-ChatGPT-ad1258cbc91b40e5ad78fa89f414dc09?pvs=21)API Endpoints](https://www.notion.so/API-Endpoints-aad3ad20ee264020ac4524da72f0dbc2?pvs=21)
-- [[←](https://www.notion.so/Ukr-Books-ChatGPT-ad1258cbc91b40e5ad78fa89f414dc09?pvs=21)License](https://www.notion.so/License-86fdd08095884e11972aef072fab5683?pvs=21)
 
 # [←](https://www.notion.so/Ukr-Books-ChatGPT-ad1258cbc91b40e5ad78fa89f414dc09?pvs=21)Overview
 
