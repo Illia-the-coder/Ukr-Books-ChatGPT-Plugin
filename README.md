@@ -24,8 +24,6 @@ And guess what? You can access our plugin (Ukr-School-Books) absolutely FREE of 
 
 ## [plugin.surf](https://plugin.surf/plugin/ukr-school-books)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/25bdcb6e-a676-42e8-9a5c-5ad93fc12e79/Untitled.jpeg)
-
 Get ready to level up your game with GPT-4! Now you can access our plugin for free. Check it out here: https://plugin.surf/plugin/ukr-school-books
 
 ## [←](https://www.notion.so/Ukr-Books-ChatGPT-ad1258cbc91b40e5ad78fa89f414dc09?pvs=21)Prerequisites
