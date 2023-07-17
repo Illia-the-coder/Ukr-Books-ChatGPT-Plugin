@@ -53,14 +53,14 @@ paths:
           type: string
         required: true
       - in: path
-        name: type
+        name: bookType
         schema:
           type: string
         required: true
       - in: path
-        name: type
+        name: author
         schema:
-          type: author
+          type: string
         required: true
       responses:
         '200':
@@ -89,7 +89,7 @@ paths:
         '200':
           description: Returns the biography of the author.
 
-/get_content/{grade}/{type}/{author}:
+  /get_content/{grade}/{type}/{author}:
     post:
       operationId: getContent
       parameters:
@@ -111,4 +111,3 @@ paths:
       responses:
         '200':
           description: Returns the content of the book.
-
