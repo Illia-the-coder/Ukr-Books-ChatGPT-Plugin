@@ -1,10 +1,10 @@
 import json
-from quart import Quart, jsonify, send_file
+import quart
 import quart_cors
 from LiteratureClient import DB
 
 app = quart_cors.cors(
-    Quart(__name__), allow_origin="https://chat.openai.com"
+    quart.Quart(__name__), allow_origin="https://chat.openai.com"
 )
 
 @app.route("/list_all/<string:grade>/<string:type>", methods=["POST"])
@@ -13,7 +13,7 @@ async def list_all(grade, type):
     all_books = {'list all': db.list_all()}
     all_books['Main web-site view eng'] = f'https://translate.google.com/translate?sl=uk&tl=en&u=https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade'
     all_books['Main web-site view ukr'] = f'https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade'
-    return jsonify(all_books)
+    return quart.Response(response=json.dumps(all_books), status=200)
 
 @app.route("/get_books/<string:grade>/<string:type>/<string:author>/", methods=["POST"])
 async def get_books(grade, type, author):
@@ -22,7 +22,7 @@ async def get_books(grade, type, author):
     index = db.authors.index(author)
     books['Main web-site view eng'] = f'https://translate.google.com/translate?sl=uk&tl=en&u=https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}'
     books['Main web-site view ukr'] = f'https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}'
-    return jsonify(books)
+    return quart.Response(response=json.dumps(books), status=200)
 
 @app.route("/get_presentation/<string:grade>/<string:type>", methods=["POST"])
 async def get_presentation(grade, type):
@@ -30,7 +30,7 @@ async def get_presentation(grade, type):
     presentation = db.get_presentation()
     presentation['Main web-site view eng'] = f'https://translate.google.com/translate?sl=uk&tl=en&u=https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/pres'
     presentation['Main web-site view ukr'] = f'https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/pres'
-    return jsonify(presentation)
+    return quart.Response(response=json.dumps(presentation), status=200)
 
 @app.route("/get_bio/<string:grade>/<string:type>/<string:author>", methods=["POST"])
 async def get_bio(grade, type, author):
@@ -39,7 +39,7 @@ async def get_bio(grade, type, author):
     index = db.authors.index(author)
     bio['Main web-site view eng'] = f'https://translate.google.com/translate?sl=uk&tl=en&u=https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}'
     bio['Main web-site view ukr'] = f'https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}'
-    return jsonify(bio)
+    return quart.Response(response=json.dumps(bio), status=200)
 
 @app.route("/get_content/<string:grade>/<string:type>/<string:author>/<string:name>", methods=["POST"])
 async def get_content(grade, type, author, name):
@@ -49,7 +49,7 @@ async def get_content(grade, type, author, name):
     book_index = db.get_books(author).index(name)
     content['Main web-site view eng'] = f'https://translate.google.com/translate?sl=uk&tl=en&u=https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}/book_ind={book_index}'
     content['Main web-site view ukr'] = f'https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}/book_ind={book_index}'
-    return jsonify(content)
+    return quart.Response(response=json.dumps(content), status=200)
 
 @app.route("/get_rnd/<string:grade>/<string:type>", methods=["POST"])
 async def get_rnd(grade, type):
@@ -59,24 +59,26 @@ async def get_rnd(grade, type):
     book_index = db.get_books(db.rnd_auth).index(db.rnd_book)
     rnd['Main web-site view eng'] = f'https://translate.google.com/translate?sl=uk&tl=en&u=https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}/book_ind={book_index}'
     rnd['Main web-site view ukr'] = f'https://literature2.illia56.repl.co/{("ukr" if "ukr" in type else "for")}/{grade}_grade/auth_ind={index}/book_ind={book_index}'
-    return jsonify(rnd)
+    return quart.Response(response=json.dumps(rnd), status=200)
 
 @app.route("/logo.jpg", methods=["GET"])
 async def plugin_logo():
     filename = 'logo.jpg'
-    return await send_file(filename, mimetype='image/png')
+    return await quart.send_file(filename, mimetype='image/png')
 
-@app.route("/.well-known/ai-plugin.json", methods=["GET"])
+@app.get("/.well-known/ai-plugin.json")
 async def plugin_manifest():
+    host = request.headers['Host']
     with open("./.well-known/ai-plugin.json") as f:
         text = f.read()
-    return text, 200, {"Content-Type": "application/json"}
+        return quart.Response(text, mimetype="text/json")
 
-@app.route("/openapi.yaml", methods=["GET"])
+@app.get("/openapi.yaml")
 async def openapi_spec():
+    host = request.headers['Host']
     with open("openapi.yaml") as f:
         text = f.read()
-    return text, 200, {"Content-Type": "text/yaml"}
+        return quart.Response(text, mimetype="text/yaml")
 
 def main():
     app.run(debug=True)
