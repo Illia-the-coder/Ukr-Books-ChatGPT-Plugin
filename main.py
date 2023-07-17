@@ -2,6 +2,7 @@ import json
 import quart
 import quart_cors
 from LiteratureClient import DB
+from quart import request
 
 app = quart_cors.cors(
     quart.Quart(__name__), allow_origin="https://chat.openai.com"
@@ -65,6 +66,10 @@ async def get_rnd(grade, type):
 async def plugin_logo():
     filename = 'logo.jpg'
     return await quart.send_file(filename, mimetype='image/png')
+
+@app.route("/")
+async def home():
+    return quart.Response(response=json.dumps({'This':"YES"}), status=200)
 
 @app.get("/.well-known/ai-plugin.json")
 async def plugin_manifest():
